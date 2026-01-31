@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "id": "node1",
+      "type": "source",
+      "config": {"table": "customers"}
+    },
+    {
+      "id": "node2",
+      "type": "transform",
+      "config": {"code": "data.filter(row => row.age > 18)"}
+    },
+    {
+      "id": "node3",
+      "type": "destination",
+      "config": {"table": "adult_customers"}
+    }
+  ],
+  "connections": [
+    {"from": "node1", "to": "node2"},
+    {"from": "node2", "to": "node3"}
+  ]
+}
